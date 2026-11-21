@@ -1,0 +1,111 @@
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3eaff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.container {
+    width: 50%;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    color: #6a0dad;
+}
+
+/* Input section */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    background-color: #7b2cbf;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a189a;
+}
+
+/* Task list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #f3eaff;
+    border-radius: 6px;
+}
+
+li span {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+}
+
+li input[type="checkbox"] {
+    flex-shrink: 0;
+}
+
+li button {
+    flex-shrink: 0;
+}
+
+/* Completed tasks */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #b02a37;
+}
+
+/* Clear all button */
+#clearAllBtn {
+    background-color: #dc3545;
+    margin-top: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+    .container {
+        width: 85%;
+    }
+}
