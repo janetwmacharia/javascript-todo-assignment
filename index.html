@@ -4,41 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My To-Do List</title>
+
+    <meta name="description" content="A simple and friendly to-do list to organize your day.">
+
+    <title>My To-Do List | Janet Wairimu</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
-        <h1>My To-Do List</h1>
+        <!-- Header Section -->
+        <header class="app-header">
+            <h1>My To-Do List</h1>
+            <p>Organize your day, one task at a time!</p>
+        </header>
 
-        <p>Organize your day, one task at a time!</p>
+        <!-- Main Content -->
+        <section class="app-content" aria-label="Task manager">
 
-        <div class="input-section">
-            <input 
-                type="text" 
-                id="taskInput" 
-                placeholder="Enter a new task..."
-            >
+            <!-- Task Input Section -->
+            <div class="input-section">
 
-            <button id="addTaskBtn">Add Task</button>
-        </div>
+                <label class="visually-hidden" for="taskInput">
+                    Enter a new task
+                </label>
 
-        <p id="taskCounter">Total Tasks: 0</p>
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What needs to get done?"
+                    autocomplete="off"
+                >
 
-        <ul id="taskList">
-        </ul>
+                <button type="button" id="addTaskBtn">
+                    Add Task
+                </button>
 
-        <p id="emptyMessage">No tasks yet. Add your first task!</p>
+            </div>
 
-        <button id="clearAllBtn">Clear All Tasks</button>
+            <!-- Task Heading and Counter -->
+            <div class="list-heading">
 
-    </div>
+                <h2>My Tasks</h2>
 
-    <script src="script.js"></script>
+                <p id="taskCounter" aria-live="polite">
+                    Total Tasks: 0
+                </p>
+
+            </div>
+
+            <!-- Task List -->
+            <ul id="taskList" aria-label="Your tasks"></ul>
+
+            <!-- Empty Message -->
+            <p id="emptyMessage" role="status">
+                No tasks yet. Add your first task!
+            </p>
+
+            <!-- Clear All Button -->
+            <button type="button" id="clearAllBtn" class="clear-btn">
+                Clear All Tasks
+            </button>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Janet Wairimu. All rights reserved.</p>
+        </footer>
+
+    </main>
 
 </body>
 </html>

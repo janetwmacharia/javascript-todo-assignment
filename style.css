@@ -1,111 +1,313 @@
 
-/* General page styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3eaff;
-    margin: 0;
-    padding: 0;
+/* Lavender and White To-Do List */
+
+/* Color Variables */
+:root {
+    --purple: #7653c6;
+    --purple-dark: #5e3eaa;
+    --lavender-bg: #f7f5ff;
+    --lavender-soft: #f0ebff;
+    --text: #302943;
+    --muted: #777184;
+    --white: #ffffff;
+    --danger: #d9536f;
+    --danger-dark: #bd3e59;
 }
 
-/* Main container */
+/* General Styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: var(--lavender-bg);
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+}
+
+/* Main Container */
 .container {
-    width: 50%;
-    margin: 60px auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 680px;
+
+    overflow: hidden;
+
+    background-color: var(--white);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 28px rgba(67, 45, 112, 0.10);
+}
+
+/* Header */
+.app-header {
+    padding: 30px 24px;
+
+    background-color: var(--purple);
+    color: var(--white);
+
     text-align: center;
 }
 
-/* Heading */
-h1 {
-    color: #6a0dad;
+.app-header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.7rem, 5vw, 2.2rem);
 }
 
-/* Input section */
+.app-header p {
+    margin: 0;
+    color: #eee8ff;
+    font-size: 1rem;
+}
+
+/* Main Content */
+.app-content {
+    padding: 28px;
+}
+
+/* Input Section */
 .input-section {
     display: flex;
     gap: 10px;
-    margin: 25px 0;
+    margin-bottom: 26px;
 }
 
-input {
+/* Task Input */
+#taskInput {
     flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    min-width: 0;
+
+    padding: 13px 14px;
+
+    border: 1px solid #ddd6ee;
+    border-radius: 8px;
+
+    outline: none;
+
+    color: var(--text);
+    font: inherit;
+}
+
+#taskInput:focus {
+    border-color: var(--purple);
+
+    box-shadow: 0 0 0 3px rgba(118, 83, 198, 0.14);
 }
 
 /* Buttons */
 button {
-    padding: 12px 18px;
-    background-color: #7b2cbf;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    padding: 12px 17px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background-color: var(--purple);
+    color: var(--white);
+
+    font: inherit;
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-    background-color: #5a189a;
+    background-color: var(--purple-dark);
 }
 
-/* Task list */
-ul {
-    list-style: none;
-    padding: 0;
+button:focus-visible {
+    outline: 3px solid #c7b5f5;
+    outline-offset: 2px;
 }
 
-li {
+/* Task Heading */
+.list-heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.list-heading h2 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+#taskCounter {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Task List */
+#taskList {
+    display: grid;
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Individual Task */
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     padding: 12px;
-    margin: 10px 0;
-    background-color: #f3eaff;
-    border-radius: 6px;
+
+    border: 1px solid #eee9f8;
+    border-radius: 9px;
+
+    background-color: var(--lavender-bg);
 }
 
-li span {
+/* Checkbox */
+#taskList input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+
+    flex-shrink: 0;
+
+    accent-color: var(--purple);
+    cursor: pointer;
+}
+
+/* Task Text */
+#taskList li span {
     flex: 1;
+    min-width: 0;
+
+    overflow-wrap: anywhere;
     text-align: left;
-    margin-left: 10px;
 }
 
-li input[type="checkbox"] {
-    flex-shrink: 0;
-}
-
-li button {
-    flex-shrink: 0;
-}
-
-/* Completed tasks */
+/* Completed Task */
 .completed {
+    color: #898394;
     text-decoration: line-through;
-    color: gray;
 }
 
-/* Delete button */
-.delete-btn {
-    background-color: #dc3545;
+/* Edit and Delete Buttons */
+#taskList li button {
+    flex-shrink: 0;
+
+    padding: 8px 11px;
+    font-size: 0.85rem;
 }
 
-.delete-btn:hover {
-    background-color: #b02a37;
+/* Edit Button */
+#taskList li .edit-btn {
+    background-color: #8b70ca;
 }
 
-/* Clear all button */
-#clearAllBtn {
-    background-color: #dc3545;
-    margin-top: 15px;
+#taskList li .edit-btn:hover {
+    background-color: var(--purple-dark);
 }
 
-/* Responsive design */
-@media (max-width: 700px) {
-    .container {
-        width: 85%;
+/* Delete and Clear All Buttons */
+#taskList li .delete-btn,
+.clear-btn {
+    background-color: var(--danger);
+}
+
+#taskList li .delete-btn:hover,
+.clear-btn:hover {
+    background-color: var(--danger-dark);
+}
+
+/* Empty Message */
+#emptyMessage {
+    margin: 22px 0;
+
+    color: var(--muted);
+    text-align: center;
+}
+
+/* Clear All Button */
+.clear-btn {
+    display: block;
+    margin: 22px auto 0;
+}
+
+/* Footer */
+.app-footer {
+    padding: 15px 20px;
+
+    border-top: 1px solid #f0edf6;
+
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.app-footer p {
+    margin: 0;
+}
+
+/* Accessible Hidden Label */
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 520px) {
+
+    body {
+        padding: 18px 10px;
     }
+
+    .app-header {
+        padding: 25px 18px;
+    }
+
+    .app-content {
+        padding: 20px 16px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .input-section button {
+        width: 100%;
+    }
+
+    #taskList li {
+        flex-wrap: wrap;
+    }
+
+    #taskList li span {
+        flex-basis: calc(100% - 35px);
+    }
+
+    #taskList li button {
+        margin-left: auto;
+    }
+
 }
